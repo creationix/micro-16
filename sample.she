@@ -1,0 +1,20 @@
+
+type Ball:
+  life = 100
+  x ?= 0
+  y ?= 0
+
+  when life > 0:
+    on draw(canvas):
+      canvas.circle(x, y, 10, :red)
+
+    on update(ms):
+      life -= 1
+      x += ms
+
+type Canvas:
+  on circle(x,y,r,c):
+    ...
+
+canvas = <Canvas>
+ball = <Ball x=64 y=64>
